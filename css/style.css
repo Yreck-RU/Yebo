@@ -140,9 +140,6 @@ body {
     .header {
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px); } }
-  @media (max-width: 720px) {
-    .header {
-      top: 15px; } }
 
 .header__container {
   max-width: 660px;
@@ -253,7 +250,10 @@ body {
     transition: 0.3s;
     display: block;
     position: absolute;
-    top: 44px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
     left: 15px;
     width: 30px;
     height: 18px;
@@ -315,7 +315,7 @@ body {
       height: 650px; } }
   @media (max-width: 540px) {
     .Top {
-      height: 500px; } }
+      height: 550px; } }
 
 .Top-content {
   position: fixed;
@@ -323,6 +323,12 @@ body {
   top: 0;
   width: 100%;
   height: 800px; }
+  @media (max-width: 740px) {
+    .Top-content {
+      height: 650px; } }
+  @media (max-width: 540px) {
+    .Top-content {
+      height: 550px; } }
 
 .about-us {
   background: #f7f7f7;
