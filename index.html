@@ -6,13 +6,12 @@
 	<head>
 		<!-- Заголовок страницы в браузере -->
 		<title>Yebo</title>
-
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-		<script src="js/slick.min.js"></script>
-		<link rel="stylesheet" href="css/style.css" />
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<meta name="format-detection" content="telephone=no">
+
+		<link rel="stylesheet" href="libs/swiper-bundle.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<!-- Отображаемое тело страницы -->
 	<body>
@@ -44,8 +43,10 @@
 			</div>
 		</header>
 		<div class="content">
-			<div class="Top ibg">
-				<img src="img/Img.jpg" alt="">
+			<div class="Top">
+				<div class="Top-content ibg">
+					<img src="img/Img.jpg" alt="">
+				</div>
 			</div>
 			<div class="about-us">
 				<div class="about-us__container">
@@ -153,34 +154,40 @@
 				</div>
 			</div>
 			<div class="slider">
-				<div class="slider__item filter">
-					<div class="slider__ikon"><img src="img/Icon5.png" alt=""></div>
-					<h3 class="slider__title">AOD New York  @aod <span>/  35 min</span></h3>
-					<div class="slider__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<div class="slider__item swiper-slide filter">
+							<div class="slider__ikon"><img src="img/Icon5.png" alt=""></div>
+							<h3 class="slider__title">AOD New York  @aod <span>/  35 min</span></h3>
+							<div class="slider__text">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.
+							</div>
+						</div>
+						<div class="slider__item swiper-slide">
+							<div class="slider__ikon"><img src="img/Icon5.png" alt=""></div>
+							<h3 class="slider__title">AOD New York  @aod <span>/  36 min</span></h3>
+							<div class="slider__text">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, voluptatibus dolorem quidem natus quaerat quae velit tempora beatae est facilis ipsam quisquam quasi maiores at minima labore ratione laboriosam ad.
+								Commodi eos porro sapiente officiis. Modi esse dolores, incidunt aliquam in soluta quae voluptate eius veritatis, dolorum asperiores tempore repellendus tempora nam! Dicta debitis, inventore quaerat eveniet dolor illo sunt.	
+							</div>
+						</div>
+						<div class="slider__item swiper-slide filter">
+							<div class="slider__ikon"><img src="img/Icon5.png" alt=""></div>
+							<h3 class="slider__title">AOD New York  @aod <span>/  37 min</span></h3>
+							<div class="slider__text">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.
+							</div>
+						</div>
+						<div class="slider__item swiper-slide">
+							<div class="slider__ikon"><img src="img/Icon5.png" alt=""></div>
+							<h3 class="slider__title">AOD New York  @aod <span>/  38 min</span></h3>
+							<div class="slider__text">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="slider__item">
-					<div class="slider__ikon"><img src="img/Icon5.png" alt=""></div>
-					<h3 class="slider__title">AOD New York  @aod <span>/  36 min</span></h3>
-					<div class="slider__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.
-					</div>
-				</div>
-				<div class="slider__item filter">
-					<div class="slider__ikon"><img src="img/Icon5.png" alt=""></div>
-					<h3 class="slider__title">AOD New York  @aod <span>/  37 min</span></h3>
-					<div class="slider__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.
-					</div>
-				</div>
-				<div class="slider__item">
-					<div class="slider__ikon"><img src="img/Icon5.png" alt=""></div>
-					<h3 class="slider__title">AOD New York  @aod <span>/  38 min</span></h3>
-					<div class="slider__text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. Nullam a odio porttitor, dictum turpis vitae, pretium ante amet.
-					</div>
-				</div>
+				<div class="swiper-pagination"></div>
 			</div>
 			<div class="shop">
 				<div class="shop__body">
@@ -288,9 +295,9 @@
 						<h2>Stay on the saddle!</h2>
 					</div>
 					<div class="mailing__form">
-						<form action="#" class="mailing__form__body">
+						<form action="#" class="mailing__form__body _form">
 							<div class="mailing__form-line">
-								<input autocomplete="off" placeholder="Name" type="text" name="form[]" class="input">
+								<input autocomplete="off" placeholder="Name" type="email" name="form[]" class="input _req _email">
 							</div>
 							<div class="mailing__form-button">
 								<button type="submit" class="mailing__form__bth">GO</button>
@@ -308,15 +315,15 @@
 							<span class="futter-text futter-text-n">New York, NY 10035  - info@domain.com</span>
 						</div>
 						<div class="futter__body-column futter__body-column-img">
-							<div class="futter__body-img">
+							<a href="" class="futter__body-img">
 								<img src="img/futer/1.png" alt="">
-							</div>
-							<div class="futter__body-img">
+							</a>
+							<a href="" class="futter__body-img">
 								<img src="img/futer/2.png" alt="">
-							</div>
-							<div class="futter__body-img">
+							</a>
+							<a href="" class="futter__body-img">
 								<img src="img/futer/3.png" alt="">
-							</div>
+							</a>
 						</div>
 						<div class="futter__body-column futter__body-column-logo">
 							<div class="futter-logo__column futter-logo__column-top">
@@ -330,8 +337,7 @@
 				</div>
 			</div>
 		</div>
-
-		<script src="js/slick.min.js"></script>
+		<script src="libs/swiper-bundle.min.js"></script>
 		<script src="js/Js.js"></script>
 	</body>
 </html>

@@ -62,12 +62,25 @@ window.addEventListener('resize' , function (event){
 //============================================================
 });
 //КОД для бургера=====================================================================================
-$(document).ready(function() {
-	$('.heder__burger').click(function(event) {
-		$('.heder__burger,.heder__menu').toggleClass('active');
-		$('body').toggleClass('lock');
+
+const iconMenu = document.querySelector('.heder__burger');
+const menuBody = document.querySelector('.heder__menu');
+if (iconMenu) {
+	iconMenu.addEventListener("click", function (e) {
+		document.body.classList.toggle('lock');
+		iconMenu.classList.toggle('active');
+		menuBody.classList.toggle('active');
 	});
+}
+
+window.addEventListener('scroll', function(){
+	var heder = document.querySelector('.header');
+	heder.classList.toggle('_active', window.scrollY > 0);
 });
+
+
+
+
 //Код для адаптива изображений
 function ibg(){
 		let ibg=document.querySelectorAll(".ibg");
@@ -82,13 +95,138 @@ ibg();
 
 
 
-$(document).ready(function(){
-	$('.slider').slick({
-		arrows:false,
-		dots:true,
-		slidesToShow:1,
-		autoplay: false,
-		speed:1000,
-		autoplaySpeed:800,
-	});
+
+
+
+//================================================================================================================
+
+
+var swiper = new Swiper(".mySwiper", {
+	spaceBetween: 30,
+	centeredSlides: true,
+	autoHeight: true,
+
+	autoplay: {
+		delay: 5500,
+		disableOnInteraction: false,
+	},
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true,
+	},
+	breakpoints: {
+		319.1: {
+			allowTouchMove: true,
+			autoHeight: true,
+		},
+		1024.1: {
+			allowTouchMove: false,
+			//autoHeight: false,
+		},
+	},
 });
+
+//===================================================================================================================
+
+
+
+
+
+//Форма =============================================================================================================
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+	const forms = document.querySelectorAll("._form");
+
+	for (let i = 0; i < forms.length; i++) {
+		let form = forms[i];
+
+		form.addEventListener("submit", function (e) {
+			e.preventDefault();
+			let error = formValidate(form);
+
+			if (error === 0) {
+				form.submit();
+			}
+		});
+
+		let formFeqInputs = form.querySelectorAll("._req");
+
+		for (let i = 0; i < formFeqInputs.length; i++) {
+			let formFeqInput = formFeqInputs[i];
+
+			formFeqInput.parentElement.addEventListener( 'click', (e) => {
+				for (let i = 0; i < formFeqInputs.length; i++) {
+					let formFeqInput = formFeqInputs[i];
+					if (formFeqInput.classList.contains('_error')) {
+						formRemoveError(formFeqInput);
+					}
+				}
+			})
+		}
+
+		function formValidate(form) {
+			let error = 0;
+			let formFeq = form.querySelectorAll("._req");
+
+			for (var i = 0; i < formFeq.length; i++) {
+				let input = formFeq[i];
+				formRemoveError(input);
+
+				if (input.classList.contains('_email')) {
+					if (emailTest(input)) {
+						formAddError(input);
+						error++;
+					}
+				} else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
+					formAddError(input);
+					error++;
+				} else if (input.getAttribute("type") === "tel" && input.value != '') {
+					if (!nomerTest(input.value)) {
+						formAddError(input);
+						error++
+					}
+				} else if (input.value === '') {
+					formAddError(input);
+					error++;
+				}
+			}
+
+			return error;
+		}
+
+		function formAddError(input) {
+			input.parentElement.classList.add("_error");
+			input.classList.add("_error");
+		}
+		function formRemoveError(input) {
+			input.parentElement.classList.remove("_error");
+			input.classList.remove("_error");
+		}
+		function emailTest(input) {
+			return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+		}
+		function nomerTest(nomer) {
+			if (true) {
+				if (nomer[0] === "8" && nomer.length == 17) {
+					return true;
+				} else if (nomer[0] === "+" && nomerTestSimvol(nomer) === "7" && nomer.length > 17) {
+					return true;
+				}
+			}
+		}
+		function nomerTestSimvol(nomer) {
+			for (let i = 1; i < nomer.length; i++) {
+				let simvol = nomer[i];
+
+				if (+simvol > 0) {
+					return simvol;
+				}
+			}
+		}
+	}
+});
+
+
+//===================================================================================================================
